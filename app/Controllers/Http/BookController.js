@@ -49,7 +49,7 @@ class BookController {
             const book = await Book.findOrFail(id)
 
             await book.delete()
-            response.send(books)
+            response.send(book)
         }
         catch (error) {
             console.log(error)
