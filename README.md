@@ -11,21 +11,40 @@ This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
 7. Lucid ORM
 8. Migrations and seeds
 
-## Setup
 
-Use the adonis command to install the blueprint
+### Setup
 
-```bash
-adonis new yardstick
+Clone the repo and install dependencies.
+
+```js
+git clone https://github.com/daryllmagsombol/triology-2021-adonis-react.git && cd triology-2021-adonis-react
+npm install
 ```
 
-or manually clone the repo and then run `npm install`.
+### Credentials DB
+
+Create adonis_book_demo database in MySQL. Open the project in VS Code or any code editor. Rename .env.example to .env and modify it based on your database credentials.
 
 
-### Migrations
+### Migrations/Seed
 
 Run the following command to run startup migrations.
 
 ```js
 adonis migration:run
+adonis seed
+```
+### Run the app
+
+Use 2 seperate terminal for running Node server and Webpack server.
+
+For Adonis
+```js
+adonis serve --dev
+```
+
+For React
+
+```js
+npm run watch
 ```
