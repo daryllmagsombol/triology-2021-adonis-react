@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Book from './main/BookContainer';
 
+import store from './main/app/store'
+import { Provider } from 'react-redux'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 ReactDOM.render(
-  <React.Fragment>
+  <Provider store={store} >
     <Book />
-  </React.Fragment>,
+  </Provider>,
   document.getElementById('root')
 );

@@ -7,6 +7,8 @@
 
 import React from 'react';
 import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectBooks, selectCurrentBook, setBooks, setCurrentBook } from './bookSlice'
 import { Button, ListGroup, Modal, ModalBody, ModalHeader, ModalFooter, Input, Label, FormGroup } from 'reactstrap'
 import axios from 'axios'
 import swal from 'sweetalert2'
@@ -15,12 +17,9 @@ import Books from './components/BooksComponent'
 
 const App = () => {
   // States
-  const [books, setBooks] = useState([])
-  const defaultCurrentBook = {
-    name: '',
-    author: '',
-  }
-  const [currentBook, setCurrentBook] = useState(defaultCurrentBook)
+  const books = useSelector(selectBooks)
+  const currentBook = useSelector(selectCurrentBook)
+  const dispatch = useDispatch()
 
   const [modal, setModal] = useState(false);
   const [modalType, setModalType] = useState(false);
@@ -30,16 +29,15 @@ const App = () => {
     setModal(!modal)
     setModalType(type)
 
-    if (type === 'add') return setCurrentBook(defaultCurrentBook)
+    if (type === 'add') return dispatch(setCurrentBook(defaultCurrentBook))
 
     if (type === 'view' || type === 'edit') {
       const bookFound = books.find((book) => (book.id === id))
-      console.log(id)
-      setCurrentBook(bookFound)
+      dispatch(setCurrentBook(bookFound))
     }
   }
 
-  const refreshData = () => axios.get('/fetch-books').then(({ data }) => setBooks(data))
+  const refreshData = () => axios.get('/fetch-books').then(({ data }) => dispatch(setBooks(data)))
 
   // Triggered at start
   useEffect(() => {
@@ -125,7 +123,7 @@ const App = () => {
               type="text"
               name="name"
               value={currentBook.name}
-              onChange={(event) => setCurrentBook({ ...currentBook, name: event.target.value })}
+              onChange={(event) => dispatch(setCurrentBook({ ...currentBook, name: event.target.value }))}
               disabled={modalType === 'view' ? true : false}
               placeholder="name" />
           </FormGroup>
@@ -136,7 +134,7 @@ const App = () => {
               type="text"
               name="author"
               value={currentBook.author}
-              onChange={(event) => setCurrentBook({ ...currentBook, author: event.target.value })}
+              onChange={(event) => dispatch(setCurrentBook({ ...currentBook, author: event.target.value }))}
               disabled={modalType === 'view' ? true : false}
               placeholder="author" />
           </FormGroup>
