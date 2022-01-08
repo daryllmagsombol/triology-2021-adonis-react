@@ -18,7 +18,7 @@ Clone the repo and install dependencies.
 
 ```js
 git clone https://github.com/daryllmagsombol/triology-2021-adonis-react.git && cd triology-2021-adonis-react
-npm install
+npm install && npm install -g cross-env
 ```
 
 ### Credentials DB
@@ -28,7 +28,7 @@ Create adonis_book_demo database in MySQL. Open the project in VS Code or any co
 
 ### Migrations/Seed
 
-Run the following command to run startup migrations.
+Run the following commands to run startup migrations.
 
 ```js
 adonis migration:run
@@ -36,7 +36,7 @@ adonis seed
 ```
 ### Run the app
 
-Use 2 seperate terminal for running Node server and Webpack server.
+Use 2 seperate terminals for running Node server and Webpack server.
 
 For Adonis
 ```js
