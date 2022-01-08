@@ -37,6 +37,8 @@ Run the following commands to run startup migrations.
 
 ```js
 adonis migration:run
+```
+```js
 adonis seed
 ```
 ### Run the app
