@@ -28,7 +28,7 @@ cp .env.example .env
 
 ### Credentials DB
 
-Create adonis_book_demo database in MySQL. Open the project in VS Code or any code editor. Rename .env.example to .env and modify it based on your database credentials.
+Create adonis_book_demo database in MySQL. Open the project in VS Code or any code editor. Modify .env based on your database credentials.
 
 
 ### Migrations/Seed
@@ -49,7 +49,6 @@ For Adonis
 ```js
 adonis serve --dev
 ```
-
 For React
 
 ```js
