@@ -14,11 +14,12 @@ This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
 
 ### Setup
 
-Clone the repo and install dependencies.
+Clone the repo, install dependencies, and copy the .env.
 
 ```js
 git clone https://github.com/daryllmagsombol/triology-2021-adonis-react.git && cd triology-2021-adonis-react
 npm install && npm install -g cross-env @adonisjs/cli
+cp .env.example .env
 ```
 
 ### Credentials DB
