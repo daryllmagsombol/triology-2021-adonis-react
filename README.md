@@ -18,7 +18,7 @@ Clone the repo and install dependencies.
 
 ```js
 git clone https://github.com/daryllmagsombol/triology-2021-adonis-react.git && cd triology-2021-adonis-react
-npm install && npm install -g cross-env
+npm install && npm install -g cross-env @adonisjs/cli
 ```
 
 ### Credentials DB
